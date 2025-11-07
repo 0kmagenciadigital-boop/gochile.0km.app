@@ -16,13 +16,15 @@ function Navbar() {
 
   return (
     <nav style={{
-      backgroundColor: '#667eea',
+      background: 'linear-gradient(135deg, #2C5F8D 0%, #1A3A52 100%)',
       color: 'white',
       padding: '1rem 2rem',
       position: 'sticky',
       top: 0,
       zIndex: 1000,
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+      boxShadow: '0 4px 20px rgba(26, 58, 82, 0.3)',
+      backdropFilter: 'blur(10px)',
+      borderBottom: '2px solid rgba(74, 144, 226, 0.2)'
     }}>
       <div style={{ 
         maxWidth: '1200px', 
@@ -36,20 +38,25 @@ function Navbar() {
           color: 'white',
           display: 'flex',
           alignItems: 'center',
-          gap: '1rem'
+          gap: '1rem',
+          transition: 'transform 0.3s ease'
         }}>
           <img 
             src={logo} 
             alt="GoChile Logo" 
+            className="logo-animated"
             style={{ 
-              height: '50px',
-              width: '50px',
-              objectFit: 'contain'
+              height: '55px',
+              width: '55px',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.2))'
             }} 
           />
           <span style={{
-            fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-            fontWeight: 'bold'
+            fontSize: 'clamp(1.4rem, 3vw, 2rem)',
+            fontWeight: '700',
+            letterSpacing: '0.5px',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
           }}>
             GoChile
           </span>
@@ -58,24 +65,36 @@ function Navbar() {
         {/* Desktop menu */}
         <div className="desktop-menu" style={{ 
           display: 'flex', 
-          gap: '2rem',
+          gap: '2.5rem',
           alignItems: 'center'
         }}>
           {navLinks.map(link => (
             <Link
               key={link.path}
               to={link.path}
+              className={`nav-link ${location.pathname === link.path ? 'nav-link-active' : ''}`}
               style={{
                 textDecoration: 'none',
                 color: 'white',
-                fontWeight: location.pathname === link.path ? 'bold' : 'normal',
-                borderBottom: location.pathname === link.path ? '2px solid white' : 'none',
-                paddingBottom: '0.3rem',
-                transition: 'all 0.3s',
-                fontSize: 'clamp(0.9rem, 2vw, 1.1rem)'
+                fontWeight: location.pathname === link.path ? '700' : '500',
+                paddingBottom: '0.5rem',
+                transition: 'all 0.3s ease',
+                fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                position: 'relative'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.textShadow = '0 2px 8px rgba(255,255,255,0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.textShadow = 'none'
               }}
             >
-              <span style={{ marginRight: '0.3rem' }}>{link.icono}</span>
+              <span style={{ fontSize: '1.2rem' }}>{link.icono}</span>
               {link.label}
             </Link>
           ))}
@@ -87,11 +106,22 @@ function Navbar() {
           onClick={() => setMenuAbierto(!menuAbierto)}
           style={{
             display: 'none',
-            backgroundColor: 'transparent',
-            border: 'none',
+            backgroundColor: 'rgba(255,255,255,0.1)',
+            border: '2px solid rgba(255,255,255,0.3)',
             color: 'white',
-            fontSize: '2rem',
-            cursor: 'pointer'
+            fontSize: '1.8rem',
+            cursor: 'pointer',
+            padding: '0.5rem 0.8rem',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)'
+            e.currentTarget.style.transform = 'scale(1.1)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)'
+            e.currentTarget.style.transform = 'scale(1)'
           }}
         >
           {menuAbierto ? '✕' : '☰'}
@@ -104,9 +134,10 @@ function Navbar() {
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem',
-          marginTop: '1rem',
-          paddingTop: '1rem',
-          borderTop: '1px solid rgba(255,255,255,0.3)'
+          marginTop: '1.5rem',
+          paddingTop: '1.5rem',
+          borderTop: '2px solid rgba(255,255,255,0.2)',
+          animation: 'slideIn 0.3s ease'
         }}>
           {navLinks.map(link => (
             <Link
@@ -116,12 +147,26 @@ function Navbar() {
               style={{
                 textDecoration: 'none',
                 color: 'white',
-                fontWeight: location.pathname === link.path ? 'bold' : 'normal',
+                fontWeight: location.pathname === link.path ? '700' : '500',
                 fontSize: '1.1rem',
-                padding: '0.5rem'
+                padding: '0.8rem',
+                borderRadius: '8px',
+                backgroundColor: location.pathname === link.path ? 'rgba(74, 144, 226, 0.3)' : 'transparent',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.7rem'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(74, 144, 226, 0.2)'
+                e.currentTarget.style.transform = 'translateX(5px)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = location.pathname === link.path ? 'rgba(74, 144, 226, 0.3)' : 'transparent'
+                e.currentTarget.style.transform = 'translateX(0)'
               }}
             >
-              <span style={{ marginRight: '0.5rem' }}>{link.icono}</span>
+              <span style={{ fontSize: '1.3rem' }}>{link.icono}</span>
               {link.label}
             </Link>
           ))}
