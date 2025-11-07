@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
+import logo from '../assets/logo.png'
 
 function Navbar() {
   const location = useLocation()
@@ -33,10 +34,25 @@ function Navbar() {
         <Link to="/" style={{ 
           textDecoration: 'none', 
           color: 'white',
-          fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
-          fontWeight: 'bold'
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1rem'
         }}>
-          GoChile 🇨🇱
+          <img 
+            src={logo} 
+            alt="GoChile Logo" 
+            style={{ 
+              height: '50px',
+              width: '50px',
+              objectFit: 'contain'
+            }} 
+          />
+          <span style={{
+            fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
+            fontWeight: 'bold'
+          }}>
+            GoChile
+          </span>
         </Link>
 
         {/* Desktop menu */}

@@ -48,10 +48,27 @@ function Footer() {
 
           <div>
             <h4 style={{ marginBottom: '1rem', color: '#667eea' }}>Síguenos</h4>
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <a href="#" style={{ fontSize: '1.5rem', textDecoration: 'none' }}>📘</a>
-              <a href="#" style={{ fontSize: '1.5rem', textDecoration: 'none' }}>📷</a>
-              <a href="#" style={{ fontSize: '1.5rem', textDecoration: 'none' }}>🐦</a>
+            <div style={{ display: 'flex', gap: '1rem', fontSize: '1.8rem' }}>
+              <a 
+                href="https://web.facebook.com/grupooutdoorchile" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none', transition: 'transform 0.3s' }}
+                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                📘
+              </a>
+              <a 
+                href="https://www.instagram.com/grupooutdoorchile/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none', transition: 'transform 0.3s' }}
+                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.2)'}
+                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                �
+              </a>
             </div>
           </div>
         </div>
