@@ -1,11 +1,85 @@
-# React + Vite
+# GoChile - Blog de Trekking y Turismo 🇨🇱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Blog y sitio web de turismo para descubrir las mejores rutas de trekking, destinos turísticos, hospedajes y guías de Chile.
 
-Currently, two official plugins are available:
+## 🌟 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Blog de Trekking**: Rutas de senderismo cerca de Santiago y Región Metropolitana
+- **Destinos por Región**: Top 10 lugares para visitar en cada región de Chile
+- **Hospedajes**: Camping, cabañas, lodges, refugios y glamping
+- **Guías de Trekking**: Información detallada para planificar aventuras
+
+## 🚀 Tecnologías
+
+- React 19.1.1
+- Vite 7.2.2
+- React Router DOM 7.1.1
+- ESLint para calidad de código
+
+## 📦 Instalación
+
+```bash
+npm install
+```
+
+## 💻 Desarrollo
+
+```bash
+npm run dev
+```
+
+El sitio estará disponible en `http://localhost:5173/`
+
+## 🏗️ Build para Producción
+
+```bash
+npm run build
+```
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── Navbar.jsx      # Navegación responsive
+│   └── Footer.jsx      # Footer con información
+├── pages/
+│   ├── Home.jsx        # Página principal
+│   ├── Blog.jsx        # Blog de trekking
+│   ├── Destinos.jsx    # Destinos por región
+│   ├── Hospedajes.jsx  # Alojamientos
+│   └── Guias.jsx       # Guías de trekking
+└── App.jsx             # Configuración de rutas
+```
+
+## 📝 Contenido
+
+### Blog
+- Cerro Manquehue
+- Cajón del Maipo - Glaciar San Francisco
+- Parque Metropolitano
+- Alto del Naranjo
+- Cerro Pochoco
+
+### Regiones
+- Región Metropolitana
+- Región de Valparaíso
+- Región de O'Higgins
+
+### Tipos de Hospedaje
+- Camping
+- Cabañas
+- Lodges
+- Refugios
+- Glamping
+
+## 🤝 Contribuir
+
+Este es un proyecto educativo. Las contribuciones son bienvenidas.
+
+## 📄 Licencia
+
+© 2025 GoChile - Todos los derechos reservados
 
 ## React Compiler
 
